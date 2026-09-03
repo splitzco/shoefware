@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DDM — The Doyen Data Model | Shoëfware</title>
+<title>DDM — The Doyen Data Model | shoëfware</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -83,8 +83,31 @@
     .hero p.lede {
         font-size: 19px;
         color: var(--ink-dim);
-        max-width: 560px;
+        max-width: 620px;
         font-weight: 300;
+        line-height: 1.65;
+    }
+
+    /* Tier badges */
+    .tier-badges {
+        display: flex;
+        gap: 12px;
+        margin-top: 36px;
+        flex-wrap: wrap;
+    }
+    .badge {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border: 1px solid var(--amber-dim);
+        color: var(--amber);
+    }
+    .badge.plus {
+        background: var(--amber);
+        color: var(--bg);
+        border-color: var(--amber);
     }
 
     /* Diagram section */
@@ -98,7 +121,7 @@
     }
     .diagram-caption strong { color: var(--ink); font-weight: 500; }
 
-    /* Body sections */
+    /* Feature sections */
     .section { padding: 80px 0; border-bottom: 1px solid var(--line); }
     .section:last-of-type { border-bottom: none; }
     .section-grid {
@@ -129,12 +152,90 @@
     .section p:last-child { margin-bottom: 0; }
     .section strong { color: var(--ink); font-weight: 500; }
 
+    /* Feature list */
+    .feature-list {
+        list-style: none;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 620px;
+    }
+    .feature-list li {
+        font-size: 15px;
+        color: var(--ink-dim);
+        padding-left: 20px;
+        position: relative;
+        line-height: 1.6;
+    }
+    .feature-list li::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: var(--amber-dim);
+    }
+    .feature-list li strong { color: var(--ink); font-weight: 500; }
+
+    /* DDM Plus section */
+    .plus-section {
+        background: var(--bg-raised);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 80px 0;
+    }
+    .plus-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        background: var(--amber);
+        color: var(--bg);
+        padding: 3px 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Tiers */
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        margin-top: 32px;
+    }
+    .tier-card {
+        background: var(--bg-raised);
+        padding: 36px 32px;
+    }
+    .tier-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+    .tier-desc {
+        font-size: 14px;
+        color: var(--ink-dim);
+        margin-bottom: 24px;
+        line-height: 1.7;
+    }
+    .tier-includes {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--amber-dim);
+        margin-bottom: 14px;
+    }
+
     @media (max-width: 640px) {
         .section-grid { grid-template-columns: 1fr; gap: 12px; }
+        .tiers-grid { grid-template-columns: 1fr; }
     }
 
     footer {
         padding: 50px 0 60px;
+        border-top: 1px solid var(--line);
     }
     footer .wrap {
         display: flex;
@@ -146,7 +247,6 @@
     footer p { font-size: 13px; color: var(--ink-dim); }
     footer a { font-size: 13px; text-decoration: none; }
 
-    /* Reveal on scroll */
     .reveal {
         opacity: 0;
         transform: translateY(14px);
@@ -164,55 +264,48 @@
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
     <div class="wrap">
-        <div class="eyebrow">Shoëfware — DDM&trade;</div>
+        <div class="eyebrow">shoëfware — DDM&trade;</div>
         <h1>Every application <em>knows</em> where your patient data goes.<br>Do you?</h1>
-        <p class="lede">The Doyen Data Model&trade; is a vast healthcare IT repository — cataloging patient data elements, application inventories, vendor information, workflows, project plans, contact records, and every interface between them. All of it searchable, in seconds.</p>
+        <p class="lede">The Doyen Data Model&trade; is a self-hosted PHI data flow mapping and IT asset repository — cataloging every application, contract, project, data field, vendor, hardware profile, and interface in your healthcare organization. All of it searchable, in seconds.</p>
+        <div class="tier-badges">
+            <span class="badge">DDM Base</span>
+            <span class="badge plus">DDM Plus — AI Powered</span>
+        </div>
     </div>
 </section>
 
+<!-- DIAGRAM -->
 <section class="diagram-section">
     <div class="wrap reveal">
         <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;" role="img" aria-label="Diagram showing patient care phases with applications, split into patient-data systems above and support systems below, connected by data flow lines">
-            <!-- phase labels -->
             <text x="90" y="30" fill="#A9A297" font-family="Jost" font-size="11" letter-spacing="1.5" text-anchor="middle">PRE-REG</text>
             <text x="280" y="30" fill="#A9A297" font-family="Jost" font-size="11" letter-spacing="1.5" text-anchor="middle">ARRIVAL</text>
             <text x="470" y="30" fill="#A9A297" font-family="Jost" font-size="11" letter-spacing="1.5" text-anchor="middle">DURING STAY</text>
             <text x="660" y="30" fill="#A9A297" font-family="Jost" font-size="11" letter-spacing="1.5" text-anchor="middle">DISCHARGE</text>
             <text x="820" y="30" fill="#A9A297" font-family="Jost" font-size="11" letter-spacing="1.5" text-anchor="middle">POST-DC</text>
-
-            <!-- phase divider lines -->
             <line x1="185" y1="15" x2="185" y2="220" stroke="#262420" stroke-dasharray="3,4"/>
             <line x1="375" y1="15" x2="375" y2="220" stroke="#262420" stroke-dasharray="3,4"/>
             <line x1="565" y1="15" x2="565" y2="220" stroke="#262420" stroke-dasharray="3,4"/>
             <line x1="755" y1="15" x2="755" y2="220" stroke="#262420" stroke-dasharray="3,4"/>
-
-            <!-- patient data app boxes -->
             <g font-family="Jost" font-size="11" fill="#F4F1EA">
                 <rect x="50" y="50" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="95" y="71" text-anchor="middle">SCHEDULING</text>
-
                 <rect x="240" y="50" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="285" y="71" text-anchor="middle">REGISTRATION</text>
-
                 <rect x="240" y="100" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="285" y="121" text-anchor="middle">STATE REGISTRY</text>
-
                 <rect x="430" y="50" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="475" y="71" text-anchor="middle">PHARMACY</text>
-
                 <rect x="430" y="100" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="475" y="121" text-anchor="middle">LAB SYSTEM</text>
-
                 <rect x="620" y="50" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="665" y="71" text-anchor="middle">ABSTRACTING</text>
-
                 <rect x="780" y="50" width="90" height="34" rx="2" fill="none" stroke="#C9974B" stroke-width="1.5"/>
                 <text x="825" y="71" text-anchor="middle">BILLING</text>
             </g>
-
-            <!-- connecting flow lines within patient band -->
             <g stroke="#7A6236" stroke-width="1" fill="none">
                 <path d="M140,67 L240,67" marker-end="url(#arrow)"/>
                 <path d="M330,67 L430,67" marker-end="url(#arrow)"/>
@@ -220,27 +313,18 @@
                 <path d="M520,67 L620,67" marker-end="url(#arrow)"/>
                 <path d="M710,67 L780,67" marker-end="url(#arrow)"/>
             </g>
-
-            <!-- boundary label -->
             <text x="450" y="180" fill="#4A4640" font-family="Jost" font-size="10" letter-spacing="2" text-anchor="middle">PATIENT DATA BOUNDARY</text>
             <line x1="20" y1="192" x2="880" y2="192" stroke="#262420"/>
-
-            <!-- non-patient band -->
             <g font-family="Jost" font-size="11" fill="#A9A297">
                 <rect x="240" y="230" width="90" height="34" rx="2" fill="none" stroke="#4A4640" stroke-width="1.2" stroke-dasharray="4,3"/>
                 <text x="285" y="251" text-anchor="middle">HR SYSTEM</text>
-
                 <rect x="780" y="230" width="90" height="34" rx="2" fill="none" stroke="#4A4640" stroke-width="1.2" stroke-dasharray="4,3"/>
                 <text x="825" y="251" text-anchor="middle">GEN. LEDGER</text>
             </g>
             <text x="180" y="251" fill="#6b665f" font-family="Jost" font-size="10" text-anchor="end">SUPPORT SYSTEMS</text>
-
-            <!-- cross-boundary flow, highlighted -->
             <path d="M825,84 C 825,150 825,180 825,230" stroke="#C9974B" stroke-width="1.5" fill="none" stroke-dasharray="2,3" marker-end="url(#arrow-amber)"/>
             <text x="845" y="160" fill="#C9974B" font-family="Jost" font-size="10" transform="rotate(90, 845, 160)">CROSS-BOUNDARY</text>
-
             <path d="M285,134 C 285,180 285,200 285,230" stroke="#4A4640" stroke-width="1.2" fill="none" marker-end="url(#arrow-dim)"/>
-
             <defs>
                 <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" fill="#7A6236"/>
@@ -253,44 +337,124 @@
                 </marker>
             </defs>
         </svg>
-        <p class="diagram-caption">A simplified view of the model: applications organized across the patient journey, with <strong>patient-data systems</strong> kept visually distinct from <strong>support systems</strong> — and every flow between them tracked.</p>
+        <p class="diagram-caption">Applications organized across the patient journey — <strong>patient-data systems</strong> visually distinct from <strong>support systems</strong> — every flow between them tracked and searchable.</p>
     </div>
 </section>
 
+<!-- VISUALIZATION -->
 <section class="section">
     <div class="wrap section-grid reveal">
-        <div class="section-label">The problem</div>
+        <div class="section-label">Visualization</div>
         <div>
-            <h2>Nobody can answer "where does this live?" quickly.</h2>
-            <p>In a typical health system, patient data doesn't live in one place — it's scattered across registration, lab, pharmacy, billing, and dozens of interfaces between them. When a CIO or analyst needs to know which applications touch a specific piece of data, the honest answer is usually: <strong>a spreadsheet, a few tribal-knowledge conversations, and a guess.</strong></p>
+            <h2>Click anything. Know everything.</h2>
+            <p>The interactive diagram organizes every application by patient-care phase — Pre-Registration through Post-Discharge — with a separate grid for infrastructure and support systems. Click any application, contract, project, or hardware profile to open a full detail sidebar.</p>
+            <ul class="feature-list">
+                <li>Drill into scrollable field lists with working back-navigation</li>
+                <li>Data flows shown as a searchable, filterable list connecting source and target applications</li>
+                <li><strong>Retired applications</strong> hidden by default, revealable with one toggle — search surfaces them automatically if a match is retired</li>
+                <li>Collapse to <strong>search-only mode</strong> for CIOs who prefer typing over browsing</li>
+            </ul>
         </div>
     </div>
 </section>
 
+<!-- SEARCH -->
 <section class="section">
     <div class="wrap section-grid reveal">
-        <div class="section-label">The model</div>
+        <div class="section-label">Search</div>
         <div>
-            <h2>One inventory. Every application, every phase.</h2>
-            <p>DDM organizes every application by where it sits in the patient journey — pre-registration, arrival, during stay, discharge, and post-discharge — and marks clearly which ones handle patient data and which are support systems.</p>
-            <p>Every connection between applications is tracked as a data flow, and any flow that crosses from a patient-data system into a support system is flagged automatically — the exact moment protected data leaves its natural boundary.</p>
+            <h2>One search bar. Every category, simultaneously.</h2>
+            <p>A single query covers applications, data flows, contracts, projects, entities, hardware profiles, phases, data fields, project documents, and departments — each rendering as its own labeled results category.</p>
+            <p>Results are fully cross-referenced: a matched contract or project <strong>lights up every application it touches on the diagram</strong>, not just what's directly tagged.</p>
         </div>
     </div>
 </section>
 
+<!-- DATA FIELD TRACING -->
 <section class="section">
     <div class="wrap section-grid reveal">
-        <div class="section-label">The payoff</div>
+        <div class="section-label">Field Tracing</div>
         <div>
-            <h2>Search for a field. Get every place it lives.</h2>
-            <p>Type "Medical Record Number" and see every application and every interface that captures it — not a guess, a query. DDM&trade; turns "where does this live?" from a multi-day investigation into a search box.</p>
+            <h2>The blast radius answer — instantly.</h2>
+            <p>Trace any patient data field (SSN, MRN, Guarantor, Date of Birth, etc.) to every application and data flow that touches it. This is the definitive answer to: <strong>"what's exposed if this is compromised?"</strong></p>
+            <ul class="feature-list">
+                <li><strong>Core Categories</strong> — a HIPAA Safe Harbor–grounded bundle (45 CFR §164.514(b)(2)) of identifier fields, inherited by an application in one click instead of tagging dozens of fields individually</li>
+                <li>Per-application exceptions for the rare case a Core app is missing one field — accuracy is never sacrificed for speed</li>
+                <li>Every result honestly distinguishes <strong>"directly tagged"</strong> from <strong>"inherited via Core"</strong>, with the legal citation shown inline</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ORGANIZATIONAL STRUCTURE -->
+<section class="section">
+    <div class="wrap section-grid reveal">
+        <div class="section-label">Structure</div>
+        <div>
+            <h2>Everything your IT organization tracks, in one repository.</h2>
+            <p>DDM&trade; is not just a diagram — it's a full asset and relationship registry for the entire organization.</p>
+            <ul class="feature-list">
+                <li><strong>Entities</strong> — track which health system(s) own an application, critical during mergers and acquisitions</li>
+                <li><strong>Departments</strong> — sub-units of an entity (e.g., "Orthopedics" under Riverwell); scoped per-entity so a widely-used app doesn't produce an unmanageable wall of checkboxes</li>
+                <li><strong>Contracts</strong> — vendor tracking with typed classifications (BAA, License, Maintenance & Support, Implementation/Consulting, MSA, and more), PDF attachment, and links to every application, project, or hardware profile each contract covers</li>
+                <li><strong>Projects</strong> — full lifecycle tracking: type, PM, budget vs. actual with live variance, status, linked applications and contracts, plus a Documents & Links section (Epic Userweb articles, specs) labeled Internal or External</li>
+                <li><strong>Hardware Profiles</strong> — tracked alongside applications with the same contract and project linkage</li>
+                <li><strong>Attributes</strong> — flexible per-application custom fields (text, number, boolean, date) for compliance flags, vendor details, or anything else — organized into categories</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- DDM PLUS -->
+<section class="plus-section">
+    <div class="wrap reveal">
+        <div class="section-grid">
+            <div class="section-label">DDM Plus</div>
+            <div>
+                <div class="plus-tag">AI Powered</div>
+                <h2>Ask DDM anything, in plain English.</h2>
+                <p>DDM Plus adds a Claude-powered AI connector (MCP) that lets any authorized user query the entire platform by voice or text — no training required. Five purpose-built tools cover every common investigation:</p>
+                <ul class="feature-list" style="margin-top: 20px;">
+                    <li><strong>Search DDM</strong> — keyword search across the entire platform</li>
+                    <li><strong>Find Where a Data Field Is Used</strong> — the reverse-lookup blast-radius tool, in plain language</li>
+                    <li><strong>Filter Applications by Attribute Value</strong> — precise true/false and value-based queries (e.g., "which apps are NOT JCAHO compliant")</li>
+                    <li><strong>List All Projects</strong> — cross-project comparison, budget analysis, and charting</li>
+                    <li><strong>Find Contracts / Projects / Hardware by Date Range</strong> — expiration and renewal tracking</li>
+                </ul>
+                <p style="margin-top: 20px;">DDM Plus is licensed per the customer's existing Claude subscription — the AI cost never lands on shoëfware.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIERS -->
+<section class="section">
+    <div class="wrap reveal">
+        <div class="section-grid">
+            <div class="section-label">Tiers</div>
+            <div>
+                <h2>Two tiers. One infrastructure.</h2>
+                <p>DDM&trade; is self-hosted — installed on your own infrastructure. shoëfware never touches your PHI data.</p>
+                <div class="tiers-grid">
+                    <div class="tier-card">
+                        <div class="tier-name">DDM&trade;</div>
+                        <p class="tier-desc">The full platform — visualization, search, field tracing, contracts, projects, entities, hardware, attributes, and the complete admin panel.</p>
+                        <div class="tier-includes">Base platform</div>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-name">DDM Plus&trade;</div>
+                        <p class="tier-desc">Everything in DDM, plus the Claude-powered AI connector — natural language and voice queries across all five tool categories.</p>
+                        <div class="tier-includes">Requires existing Claude subscription</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <footer>
     <div class="wrap">
-        <p>DDM&trade; — The Doyen Data Model&trade; is a shoëfware,inc. product, self-hosted within your own infrastructure.</p>
+        <p>DDM&trade; — The Doyen Data Model&trade; is a shoëfware, inc. product, self-hosted within your own infrastructure.</p>
         <a href="mailto:info@shoefware.com">info@shoefware.com</a>
     </div>
 </footer>
