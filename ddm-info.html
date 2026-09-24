@@ -269,7 +269,7 @@
     <div class="wrap">
         <div class="eyebrow">shoëfware — DDM&trade;</div>
         <h1>DDM makes the <em>invisible</em> visible.<br><span style="font-size:clamp(28px,4vw,48px);color:var(--ink-dim);font-style:normal;">What you have. How it connects. What breaks if it's compromised.</span></h1>
-        <p class="lede">The Doyen Data Model&trade; is a self-hosted PHI data flow mapping and IT asset repository — cataloging every application, contract, project, data field, vendor, hardware profile, and interface in your healthcare organization. All of it searchable, in seconds.</p>
+        <p class="lede">The Doyen Data Model&trade; is a self-hosted PHI data flow mapping and IT asset repository — cataloging every application, contract, project, data field, vendor, hardware profile, person, and interface in your healthcare organization. All of it searchable, in seconds.</p>
         <div class="tier-badges">
             <span class="badge">DDM Base</span>
             <span class="badge plus">DDM Plus — AI Powered</span>
@@ -364,7 +364,7 @@
         <div class="section-label">Search</div>
         <div>
             <h2>One search bar. Every category, simultaneously.</h2>
-            <p>A single query covers applications, data flows, contracts, projects, entities, hardware profiles, phases, data fields, project documents, and departments — each rendering as its own labeled results category.</p>
+            <p>A single query covers applications, data flows, contracts, projects, entities, hardware profiles, phases, data fields, project documents, departments, workflows, personnel, vendors, and certificates — each rendering as its own labeled results category.</p>
             <p>Results are fully cross-referenced: a matched contract or project <strong>lights up every application it touches on the diagram</strong>, not just what's directly tagged.</p>
         </div>
     </div>
@@ -397,11 +397,26 @@
             <ul class="feature-list">
                 <li><strong>Entities</strong> — track which health system(s) own an application, critical during mergers and acquisitions</li>
                 <li><strong>Departments</strong> — sub-units of an entity (e.g., "Orthopedics" under Riverwell); scoped per-entity so a widely-used app doesn't produce an unmanageable wall of checkboxes</li>
-                <li><strong>Contracts</strong> — vendor tracking with typed classifications (BAA, License, Maintenance & Support, Implementation/Consulting, MSA, and more), PDF attachment, and links to every application, project, or hardware profile each contract covers</li>
-                <li><strong>Projects</strong> — full lifecycle tracking: type, PM, budget vs. actual with live variance, status, linked applications and contracts, plus a Documents & Links section (Epic Userweb articles, specs) labeled Internal or External</li>
-                <li><strong>Hardware Profiles</strong> — tracked alongside applications with the same contract and project linkage</li>
-                <li><strong>Attributes</strong> — flexible per-application custom fields (text, number, boolean, date) for compliance flags, vendor details, or anything else — organized into categories</li>
+                <li><strong>Personnel &amp; Teams</strong> — real people and real support teams, not typed-in names; every Application Manager, Project Manager, Owner Team, and Hardware Assigned Tech links to one, so "who do I call about this" always has a real answer</li>
+                <li><strong>Vendors</strong> — one real record per vendor, with contact and escalation info, linked directly from Contracts and Applications — no more vendor names quietly drifting out of sync across the platform</li>
+                <li><strong>Contracts</strong> — linked to a real Vendor record, with typed classifications (BAA, License, Maintenance &amp; Support, Implementation/Consulting, MSA, and more), PDF attachment, a Restricted flag for sensitive agreements, and links to every application, project, or hardware profile each contract covers</li>
+                <li><strong>Certificates</strong> — SSL/TLS and other certificate expirations tracked the same way contract renewals are, so nothing lapses silently</li>
+                <li><strong>Projects</strong> — full lifecycle tracking: type, PM, budget vs. actual with live variance, status, linked applications and contracts, plus a Documents &amp; Links section (Epic Userweb articles, specs) labeled Internal or External</li>
+                <li><strong>Hardware Profiles</strong> — status, warranty, an Owner Team, and an Assigned Tech — tracked alongside applications with the same contract and project linkage</li>
+                <li><strong>Workflows</strong> — upload the actual Visio diagrams, spreadsheets, or PDFs that document how an application really operates, attached directly to that application</li>
+                <li><strong>Attributes</strong> — flexible custom fields (text, number, boolean, date) for applications, data flows, hardware profiles, and personnel — compliance flags, vendor details, or anything else, organized into categories</li>
             </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ACCESS CONTROL -->
+<section class="section">
+    <div class="wrap section-grid reveal">
+        <div class="section-label">Access Control</div>
+        <div>
+            <h2>Real roles. Real boundaries.</h2>
+            <p>Four roles — Administrator, Senior Admin, Manager, and Analyst — each with genuine, enforced boundaries, not just a label. Records marked <strong>Restricted</strong> are invisible to anyone without access: not just hidden, but undiscoverable — no confirmation a restricted record even exists — enforced consistently across the web app, search, and DDM Plus.</p>
         </div>
     </div>
 </section>
@@ -414,13 +429,14 @@
             <div>
                 <div class="plus-tag">AI Powered</div>
                 <h2>Ask DDM anything, in plain English.</h2>
-                <p>DDM Plus adds a Claude-powered AI connector (MCP) that lets any authorized user query the entire platform by voice or text — no training required. Five purpose-built tools cover every common investigation:</p>
+                <p>DDM Plus adds a Claude-powered AI connector (MCP) that lets any authorized user query the entire platform by voice or text — no training required. Six purpose-built tools cover every common investigation:</p>
                 <ul class="feature-list" style="margin-top: 20px;">
                     <li><strong>Search DDM</strong> — keyword search across the entire platform</li>
                     <li><strong>Find Where a Data Field Is Used</strong> — the reverse-lookup blast-radius tool, in plain language</li>
                     <li><strong>Filter Applications by Attribute Value</strong> — precise true/false and value-based queries (e.g., "which apps are NOT JCAHO compliant")</li>
                     <li><strong>List All Projects</strong> — cross-project comparison, budget analysis, and charting</li>
-                    <li><strong>Find Contracts / Projects / Hardware by Date Range</strong> — expiration and renewal tracking</li>
+                    <li><strong>Find Contracts / Projects / Hardware / Certificates by Date Range</strong> — expiration and renewal tracking</li>
+                    <li><strong>Blast Radius</strong> — trace everything connected to a specific application or vendor by name, checking every signal that identifies it — linked Contract vendor, linked Application vendor, and legacy vendor attributes — so nothing is missed due to a naming mismatch</li>
                 </ul>
                 <p style="margin-top: 20px;">DDM Plus is licensed per the customer's existing Claude subscription — the AI cost never lands on shoëfware.</p>
             </div>
@@ -451,12 +467,12 @@
                 <div class="tiers-grid">
                     <div class="tier-card">
                         <div class="tier-name">DDM&trade;</div>
-                        <p class="tier-desc">The full platform — visualization, search, field tracing, contracts, projects, entities, hardware, attributes, and the complete admin panel.</p>
+                        <p class="tier-desc">The full platform — visualization, search, field tracing, contracts, vendors, certificates, projects, entities, hardware, personnel, attributes, and the complete admin panel.</p>
                         <div class="tier-includes">Base platform</div>
                     </div>
                     <div class="tier-card">
                         <div class="tier-name">DDM Plus&trade;</div>
-                        <p class="tier-desc">Everything in DDM, plus the Claude-powered AI connector — natural language and voice queries across all five tool categories.</p>
+                        <p class="tier-desc">Everything in DDM, plus the Claude-powered AI connector — natural language and voice queries across all six tool categories.</p>
                         <div class="tier-includes">Requires existing Claude subscription</div>
                     </div>
                 </div>
