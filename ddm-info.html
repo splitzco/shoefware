@@ -269,7 +269,7 @@
     <div class="wrap">
         <div class="eyebrow">shoëfware — DDM&trade;</div>
         <h1>DDM makes the <em>invisible</em> visible.<br><span style="font-size:clamp(28px,4vw,48px);color:var(--ink-dim);font-style:normal;">What you have. How it connects. What breaks if it's compromised.</span></h1>
-        <p class="lede">The Doyen Data Model&trade; is a self-hosted PHI data flow mapping and IT asset repository — cataloging every application, contract, project, data field, vendor, hardware profile, person, and interface in your healthcare organization. All of it searchable, in seconds.</p>
+        <p class="lede">The Doyen Data Model&trade; is a self-hosted PHI data flow mapping and IT asset repository — cataloging every application, contract, project, data field, vendor, hardware profile, site, person, team, and interface in your healthcare organization. All of it searchable in seconds — at your desk or on your phone.</p>
         <div class="tier-badges">
             <span class="badge">DDM Base</span>
             <span class="badge plus">DDM Plus — AI Powered</span>
@@ -347,7 +347,7 @@
         <div class="section-label">Visualization</div>
         <div>
             <h2>Click anything. Know everything.</h2>
-            <p>The interactive diagram organizes every application by patient-care phase — Pre-Registration through Post-Discharge — with a separate grid for infrastructure and support systems. Click any application, contract, project, or hardware profile to open a full detail sidebar.</p>
+            <p>The interactive diagram organizes every application by patient-care phase — Pre-Registration through Post-Discharge — with a separate grid for infrastructure and support systems. Click any application, contract, project, hardware profile, person, team, or site to open a full detail sidebar.</p>
             <ul class="feature-list">
                 <li>Drill into scrollable field lists with working back-navigation</li>
                 <li>Data flows shown as a searchable, filterable list connecting source and target applications</li>
@@ -364,8 +364,8 @@
         <div class="section-label">Search</div>
         <div>
             <h2>One search bar. Every category, simultaneously.</h2>
-            <p>A single query covers applications, data flows, contracts, projects, entities, hardware profiles, phases, data fields, project documents, departments, workflows, personnel, vendors, and certificates — each rendering as its own labeled results category.</p>
-            <p>Results are fully cross-referenced: a matched contract or project <strong>lights up every application it touches on the diagram</strong>, not just what's directly tagged.</p>
+            <p>A single query covers applications, data flows, contracts, projects, entities, hardware profiles, phases, data fields, project documents, departments, workflows, personnel, teams, vendors, certificates, and sites — each rendering as its own labeled results category.</p>
+            <p>Results are fully cross-referenced: a matched contract, project, or site <strong>lights up every application it touches on the diagram</strong>, not just what's directly tagged.</p>
         </div>
     </div>
 </section>
@@ -387,6 +387,39 @@
     </div>
 </section>
 
+<!-- INFRASTRUCTURE -->
+<section class="section">
+    <div class="wrap section-grid reveal">
+        <div class="section-label">Infrastructure</div>
+        <div>
+            <h2>What goes down if the data center does?</h2>
+            <p>DDM&trade; now maps where everything runs — data centers, hospitals, clinics, and cloud or hosted environments. Hardware sits at a site, applications run on that hardware, and DDM connects the chain. Every site opens with an <strong>"Impact If Unavailable"</strong> summary: how many applications depend on it, how many handle patient data, and how much hardware is there.</p>
+            <ul class="feature-list">
+                <li><strong>Start simple, add detail later</strong> — begin at the site level; network segments, firewalls, storage, and clusters can be nested underneath whenever your network team is ready, with no change to DDM itself</li>
+                <li><strong>Hosted and cloud applications</strong> link straight to their site when there's no hardware of your own to point to</li>
+                <li><strong>Outage tracing</strong> — follow a site to its hardware, applications, data flows, contracts, and the support teams to call</li>
+                <li><strong>Restricted from day one</strong> — a map of your infrastructure is sensitive, so sites can be locked down exactly like restricted contracts</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- MOBILE -->
+<section class="section">
+    <div class="wrap section-grid reveal">
+        <div class="section-label">On Your Phone</div>
+        <div>
+            <h2>The answer, wherever the question comes up.</h2>
+            <p>Outages don't wait for you to get back to your desk. On a phone, DDM&trade; becomes a focused lookup app — search, results, and full-screen records with a Back button — and installs to the home screen like a native app, with no App Store involved.</p>
+            <ul class="feature-list">
+                <li><strong>Tap to call or email</strong> the right person or vendor straight from the record, extensions included</li>
+                <li>Filters sit above the results, and every record opens full-screen</li>
+                <li>The desktop experience is unchanged — one platform, both screens</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 <!-- ORGANIZATIONAL STRUCTURE -->
 <section class="section">
     <div class="wrap section-grid reveal">
@@ -397,14 +430,17 @@
             <ul class="feature-list">
                 <li><strong>Entities</strong> — track which health system(s) own an application, critical during mergers and acquisitions</li>
                 <li><strong>Departments</strong> — sub-units of an entity (e.g., "Orthopedics" under Riverwell); scoped per-entity so a widely-used app doesn't produce an unmanageable wall of checkboxes</li>
-                <li><strong>Personnel &amp; Teams</strong> — real people and real support teams, not typed-in names; every Application Manager, Project Manager, Owner Team, and Hardware Assigned Tech links to one, so "who do I call about this" always has a real answer</li>
+                <li><strong>Personnel &amp; Teams</strong> — real people and real teams, not typed-in names; every Application Manager, Project Manager, Owner Team, Project Team, and Assigned Tech links to one, so "who do I call about this" always has a real answer</li>
+                <li><strong>Owner Teams and Support Teams</strong> — kept apart on purpose: the business side that owns an application, and the IT teams who keep it running — on applications, hardware, and sites alike</li>
+                <li><strong>Time commitments</strong> — each person's share of time on every team, with team and project capacity totals and a clear warning when someone is over-allocated; support time and project time side by side, so "run" versus "change" is never a guess</li>
                 <li><strong>Vendors</strong> — one real record per vendor, with contact and escalation info, linked directly from Contracts and Applications — no more vendor names quietly drifting out of sync across the platform</li>
                 <li><strong>Contracts</strong> — linked to a real Vendor record, with typed classifications (BAA, License, Maintenance &amp; Support, Implementation/Consulting, MSA, and more), PDF attachment, a Restricted flag for sensitive agreements, and links to every application, project, or hardware profile each contract covers</li>
-                <li><strong>Certificates</strong> — SSL/TLS and other certificate expirations tracked the same way contract renewals are, so nothing lapses silently</li>
+                <li><strong>Certificates</strong> — SSL/TLS and other certificate expirations, linked to an application or a piece of hardware, tracked the same way contract renewals are, so nothing lapses silently</li>
                 <li><strong>Projects</strong> — full lifecycle tracking: type, PM, budget vs. actual with live variance, status, linked applications and contracts, plus a Documents &amp; Links section (Epic Userweb articles, specs) labeled Internal or External</li>
-                <li><strong>Hardware Profiles</strong> — status, warranty, an Owner Team, and an Assigned Tech — tracked alongside applications with the same contract and project linkage</li>
+                <li><strong>Hardware Profiles</strong> — status, warranty, the site it sits at, an Owner Team, Support Teams, and an Assigned Tech — tracked alongside applications with the same contract and project linkage</li>
+                <li><strong>Sites</strong> — data centers, hospitals, clinics, and hosted environments, each with its entity, provider, owner, support teams, and everything that runs there</li>
                 <li><strong>Workflows</strong> — upload the actual Visio diagrams, spreadsheets, or PDFs that document how an application really operates, attached directly to that application</li>
-                <li><strong>Attributes</strong> — flexible custom fields (text, number, boolean, date) for applications, data flows, hardware profiles, and personnel — compliance flags, vendor details, or anything else, organized into categories</li>
+                <li><strong>Attributes</strong> — flexible custom fields (text, number, boolean, date) for applications, data flows, hardware profiles, personnel, and sites — compliance flags, vendor details, or anything else, organized into categories</li>
             </ul>
         </div>
     </div>
@@ -416,7 +452,7 @@
         <div class="section-label">Access Control</div>
         <div>
             <h2>Real roles. Real boundaries.</h2>
-            <p>Four roles — Administrator, Senior Admin, Manager, and Analyst — each with genuine, enforced boundaries, not just a label. Records marked <strong>Restricted</strong> are invisible to anyone without access: not just hidden, but undiscoverable — no confirmation a restricted record even exists — enforced consistently across the web app, search, and DDM Plus.</p>
+            <p>Four roles — Administrator, Senior Admin, Manager, and Analyst — each with genuine, enforced boundaries, not just a label. Records marked <strong>Restricted</strong> — contracts and sites — are invisible to anyone without access: not just hidden, but undiscoverable — no confirmation a restricted record even exists — enforced consistently across the web app, search, and DDM Plus.</p>
         </div>
     </div>
 </section>
@@ -429,14 +465,16 @@
             <div>
                 <div class="plus-tag">AI Powered</div>
                 <h2>Ask DDM anything, in plain English.</h2>
-                <p>DDM Plus adds a Claude-powered AI connector (MCP) that lets any authorized user query the entire platform by voice or text — no training required. Six purpose-built tools cover every common investigation:</p>
+                <p>DDM Plus adds a Claude-powered AI connector (MCP) that lets any authorized user query the entire platform by voice or text — no training required. Eight purpose-built tools cover every common investigation:</p>
                 <ul class="feature-list" style="margin-top: 20px;">
-                    <li><strong>Search DDM</strong> — keyword search across the entire platform</li>
+                    <li><strong>Search DDM</strong> — keyword search across the entire platform, including people, teams, vendors, and sites ("what's Epic's support line," "who supports Epic Ambulatory")</li>
                     <li><strong>Find Where a Data Field Is Used</strong> — the reverse-lookup blast-radius tool, in plain language</li>
                     <li><strong>Filter Applications by Attribute Value</strong> — precise true/false and value-based queries (e.g., "which apps are NOT JCAHO compliant")</li>
                     <li><strong>List All Projects</strong> — cross-project comparison, budget analysis, and charting</li>
                     <li><strong>Find Contracts / Projects / Hardware / Certificates by Date Range</strong> — expiration and renewal tracking</li>
-                    <li><strong>Blast Radius</strong> — trace everything connected to a specific application or vendor by name, checking every signal that identifies it — linked Contract vendor, linked Application vendor, and legacy vendor attributes — so nothing is missed due to a naming mismatch</li>
+                    <li><strong>List Data Field Bundles</strong> — every bundle (such as the HIPAA Safe Harbor–grounded Core bundle), its fields, and the applications tagged to it</li>
+                    <li><strong>Blast Radius</strong> — trace everything connected to an application, a vendor, or a site ("what goes down if the Riverwell data center loses power?"), checking every signal that identifies a vendor so nothing is missed due to a naming mismatch — and every answer includes <strong>who to call</strong>, with names and phone numbers</li>
+                    <li><strong>Team Allocation</strong> — who is over-allocated, how much of someone's time is committed, and each team's capacity</li>
                 </ul>
                 <p style="margin-top: 20px;">DDM Plus is licensed per the customer's existing Claude subscription — the AI cost never lands on shoëfware.</p>
             </div>
@@ -467,12 +505,12 @@
                 <div class="tiers-grid">
                     <div class="tier-card">
                         <div class="tier-name">DDM&trade;</div>
-                        <p class="tier-desc">The full platform — visualization, search, field tracing, contracts, vendors, certificates, projects, entities, hardware, personnel, attributes, and the complete admin panel.</p>
+                        <p class="tier-desc">The full platform — visualization, search, field tracing, sites and infrastructure, contracts, vendors, certificates, projects, entities, hardware, personnel, teams and time commitments, attributes, mobile access, and the complete admin panel.</p>
                         <div class="tier-includes">Base platform</div>
                     </div>
                     <div class="tier-card">
                         <div class="tier-name">DDM Plus&trade;</div>
-                        <p class="tier-desc">Everything in DDM, plus the Claude-powered AI connector — natural language and voice queries across all six tool categories.</p>
+                        <p class="tier-desc">Everything in DDM, plus the Claude-powered AI connector — natural language and voice queries across all eight tool categories.</p>
                         <div class="tier-includes">Requires existing Claude subscription</div>
                     </div>
                 </div>
