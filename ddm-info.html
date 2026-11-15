@@ -247,6 +247,22 @@
     footer p { font-size: 13px; color: var(--ink-dim); }
     footer a { font-size: 13px; text-decoration: none; }
 
+    .trailers-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+    .trailer-card { display: flex; flex-direction: column; gap: 12px; }
+    .trailer-label {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        font-size: 20px;
+        color: var(--ink-dim);
+    }
+    @media (max-width: 640px) {
+        .trailers-grid { grid-template-columns: 1fr; }
+    }
+
     .reveal {
         opacity: 0;
         transform: translateY(14px);
@@ -519,19 +535,27 @@
     </div>
 </section>
 
-<div class="divider"></div>
-
-<section class="section reveal">
-    <div class="wrap">
-        <div class="section-label">See It In Action</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,42px);margin-bottom:2rem;max-width:640px;">Watch a full DDM™ walkthrough.</h2>
-        <video
-            src="ddm_full_demo_v4_music_slower.mp4"
-            controls
-            playsinline
-            style="width:100%;border-radius:2px;display:block;">
-        </video>
-        <p class="diagram-caption" style="margin-top:1.2rem;">Search, field tracing, contracts, projects, and <strong>DDM Plus</strong> — all in one demo.</p>
+<!-- TRAILERS -->
+<section class="section">
+    <div class="wrap reveal">
+        <div class="trailers-grid">
+            <div class="trailer-card">
+                <p class="trailer-label">You ask?</p>
+                <video src="ddm-you-ask.mp4" controls playsinline style="width:100%;display:block;border-radius:2px;"></video>
+            </div>
+            <div class="trailer-card">
+                <p class="trailer-label">Email is down?</p>
+                <video src="ddm-linkedin-still-up.mp4" controls playsinline style="width:100%;display:block;border-radius:2px;"></video>
+            </div>
+            <div class="trailer-card">
+                <p class="trailer-label">Unknowns</p>
+                <video src="ddm-linkedin-trailer-v2.mp4" controls playsinline style="width:100%;display:block;border-radius:2px;"></video>
+            </div>
+            <div class="trailer-card">
+                <p class="trailer-label">Layers</p>
+                <video src="ddm-linkedin-trailer-layers.mp4" controls playsinline style="width:100%;display:block;border-radius:2px;"></video>
+            </div>
+        </div>
     </div>
 </section>
 
